@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:replace="layout :: header"></header>
+	<p th:text="${news.getDescription_news()}"></p>
+	<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Arsenal fanpage</title>
+	
+	<link rel="icon" href="/img/core-img/favicon.ico">
+	<link rel="stylesheet" href="/style.css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+	<header class="header-area" th:fragment="header">
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="top-header-content d-flex align-items-center justify-content-between">
+                            <div class="">
+                                <a href="/arsenal" style="font-size: 50px; color: white;">ARSENAL</a>
+                            </div>
+                            <!-- Login Search Area -->
+                            <div class="login-search-area d-flex align-items-center">
+                                <!-- Search Form -->
+                                <div class="search-form">
+                                    <form action="#" method="post">
+                                        <input type="search" name="search" class="form-control" placeholder="Search">
+                                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="newspaper-main-menu" id="stickyMenu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="newspaperNav">
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+                        <div class="classy-menu">
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+                            <div class="classynav">
+                                <ul>
+                                    <li class="active"><a href="/arsenal">Trang chủ</a></li>
+                                    <li><a href="#">Cầu thủ</a>
+                                        <div class="megamenu">
+                                            <ul class="single-mega cn-col-4">
+                                                <li class="title">Thủ môn</li>
+                                                <li><a href="/arsenal/playerprofile/1">1 Petr Cech</a></li>
+                                                <li><a href="/arsenal/playerprofile/2">19 Bernd Leno</a></li>
+                                                <li><a href="/arsenal/playerprofile/3">26 Emiliano Martinez</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li class="title">Hậu vệ</li>
+                                                <li><a href="/arsenal/playerprofile/4">2 Hector Bellerin</a></li>
+                                                <li><a href="/arsenal/playerprofile/5">5 Sokratis Papastathopoulos</a></li>
+                                                <li><a href="/arsenal/playerprofile/6">6 Laurent Koscielny</a></li>
+                                                <li><a href="/arsenal/playerprofile/7">12 Stephan Lichtsteiner</a></li>
+                                                <li><a href="/arsenal/playerprofile/8">16 Rob Holding</a></li>
+                                                <li><a href="/arsenal/playerprofile/9">18 Nacho Monreal</a></li>
+                                                <li><a href="/arsenal/playerprofile/11">20 Shkodran Mustafi</a></li>
+                                                <li><a href="/arsenal/playerprofile/12">25 Carl Jenkinson</a></li>
+                                                <li><a href="/arsenal/playerprofile/13">27 Konstantinos Mavropanos</a></li>
+                                                <li><a href="/arsenal/playerprofile/14">31 Sead Kolasinac</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li class="title">Tiền vệ</li>
+                                                <li><a href="/arsenal/playerprofile/15"> 4 Mohamed Elneny</a></li>
+                                                <li><a href="/arsenal/playerprofile/16">7 Henrikh Mkhitaryan</a></li>
+                                                <li><a href="/arsenal/playerprofile/17">8 Aaron Ramsey</a></li>
+                                                <li><a href="/arsenal/playerprofile/18">10 Mesut Ozil</a></li>
+                                                <li><a href="/arsenal/playerprofile/19">11 Lucas Torreira</a></li>
+                                                <li><a href="/arsenal/playerprofile/20">15 Ainsley Maitland-Niles</a></li>
+                                                <li><a href="/arsenal/playerprofile/21">29 Matteo Guendouzi</a></li>
+                                                <li><a href="/arsenal/playerprofile/22">34 Granit Xhaka</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li class="title">Tiền đạo</li>
+                                                <li><a href="/arsenal/playerprofile/23">9 Alexandre Lacazette</a></li>
+                                                <li><a href="/arsenal/playerprofile/24">14 Pierre-Emerick Aubameyang</a></li>
+                                                <li><a href="/arsenal/playerprofile/25">17 Alex Iwobi</a></li>
+                                                <li><a href="/arsenal/playerprofile/26">23 Danny Welbeck</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a href="/arsenal/videopage">Video</a></li>
+                                    <li><a href="/arsenal/schedule">Lịch thi đấu</a></li>
+                                    <li><a href="/arsenal/product">Áo thi đấu</a></li>
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <footer class="footer-area" th:fragment="footer">
+        <!-- Main Footer Area -->
+        <div class="main-footer-area">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="footer-widget-area mt-80">
+                            <!-- Footer Logo -->
+                            <div class="footer-logo">
+                                <a href="/arsenal" style="font-size: 40px; color: red;">ARSENAL</a>
+                            </div>
+                            <!-- List -->
+                            <ul class="list">
+                                <li><a href="#">contact@youremail.com</a></li>
+                                <li><a href="#">+43 5278 2883 884</a></li>
+                                <li><a href="#">www.yoursitename.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-8">
+                   		<div class="footer-widget-area mt-80">
+	                        <form class="form-cotentNews">																
+	                        	<span class="title-text-comment">Email : </span>
+								<input type="text" class="form-control email_comment" placeholder="Email comment" name="email_comment"/><br/>  
+								<span class="title-text-comment">Nội dung</span>
+								<textarea class="form-control content_comment" rows="3" placeholder="Content comment" name="content_comment"></textarea><br/>
+								<button type="button" class="btn btn-success btn-comment">
+									<span class="bigger-110">Gửi ý kiến</span>
+								</button>
+							</form>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div><br/>
+
+        <!-- Bottom Footer Area -->
+        <div class="bottom-footer-area">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <!-- Copywrite -->
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/js/jquery/jquery-2.2.4.min.js"></script>
+		<script src="/js/jquery/custom.js"></script>
+		<script src="/js/bootstrap/popper.min.js"></script>
+		<script src="/js/bootstrap/bootstrap.min.js"></script>
+		<script src="/js/plugins/plugins.js"></script>
+		<script src="/js/active.js"></script>
+    </footer>
+</body>
+</html>

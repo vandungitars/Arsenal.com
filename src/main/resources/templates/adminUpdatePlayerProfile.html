@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace = "layoutAdmin :: head">
+</head>
+<body class="no-skin">
+	<header th:replace="layoutAdmin :: header"></header>
+	<div class="main-container ace-save-state" id="main-container">
+		<script type="text/javascript">
+			try{ace.settings.loadState('main-container')}catch(e){}
+		</script>
+		<div id="sidebar" class="sidebar responsive ace-save-state">
+			<script type="text/javascript">
+				try{ace.settings.loadState('sidebar')}catch(e){}
+			</script>
+			<ul class="nav nav-list">
+				<li class="">
+					<a href="/arsenal">
+						<i class="menu-icon fa fa-tachometer"></i>
+						<span class="menu-text"> Arsenal </span>
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-pencil-square-o"></i>
+						<span class="menu-text"> Dữ liệu Tin tức</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="active">
+							<a href="/admin/News">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Thêm dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href="/admin/getListNews">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Xóa, Sửa dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="active open">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-pencil-square-o"></i>
+						<span class="menu-text"> Dữ liệu cầu thủ</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="active">
+							<a href="/admin/PlayerProfile">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Thêm dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href="/admin/getListPlayerProfile">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Xóa, Sửa dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-pencil-square-o"></i>
+						<span class="menu-text"> Video</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="active">
+							<a href="/admin/Video">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Thêm dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href="/admin/getListVideo">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Xóa, Sửa dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-pencil-square-o"></i>
+						<span class="menu-text"> Lịch thi đấu</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="active">
+							<a href="/admin/Schedule">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Thêm dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href="/admin/getListSchedule">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Xóa, Sửa dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-pencil-square-o"></i>
+						<span class="menu-text"> Áo thi đấu</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="active">
+							<a href="/admin/Product">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Thêm dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href="/admin/getListProduct">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Xóa, Sửa dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+				<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+			</div>
+		</div>
+		<div class="main-content">
+			<div class="main-content-inner">
+				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li>
+							<i class="ace-icon fa fa-home home-icon"></i>
+							<a href="#">Home</a>
+						</li>
+						<li>
+							<a href="#">Xóa, Sửa dữ liệu</a>
+						</li>
+					</ul>
+				</div>
+				<div class="page-content">					
+					<h1 class="header green">Xóa, Sửa dữ liệu</h1>
+					<div class="row">
+						<div class="col-xs-12">
+								<div class="row">
+									<div class="col-sm-12">
+										<h3 class="header green">Danh sách Cầu thủ</h3>
+										<div id="searchBox">
+										    <form name="searchForm">
+										      <div>
+										        <i class="icon-search icon-large icon-height"></i>
+										        <input name="searchfield" type="search" size="20" maxlength="30">
+										      </div>
+										    </form>
+										</div>
+										<table class="table">
+										    <thead>
+										      <tr id="tr">
+										        <th>Số áo</th>
+										        <th>Tên</th>
+										        <th>Ngày sinh</th>
+										        <th>Quốc tịch</th>
+										        <th>Vị trí</th>
+										        <th>Hình ảnh</th>
+										        <th>Xóa, Sửa</th>
+										      </tr>
+										    </thead>
+										    <tbody>
+										    	<th:block th:each="player : ${listPlayer}">
+											      <tr>
+											      	 <td th:text="${player.getSquadnumber()}"></td>
+											         <td th:text="${player.getName_player()}"></td>
+											         <td th:text="${player.getBorn_player()}"></td>
+											         <td th:text="${player.getCountry_player()}"></td>
+											         <td th:text="${player.getLocation_player()}"></td>
+											         <td style="display:none;" th:text="${player.getId_player()}" class="idPlayerProfile"></td>
+							         				 <!-- <td><img th:src="${player.getImage_player()}" class="frame-image"/></td>-->
+											         <td><button type="button" class="btn btn-warning btn-md btn-deletePlayerProfile">Xóa</button>
+											         <button type="button" class="btn btn-success btn-md btn-updatePlayerProfile" data-toggle="modal" data-target="#myModal">Sửa</button></td>	
+											      </tr>
+											   </th:block>
+										    </tbody>
+										  </table>				  	
+										  	<div class="modal fade" id="myModal" role="dialog">
+											    <div class="modal-dialog">								    
+											      <div class="modal-content">
+											        <div class="modal-header">
+											          <button type="button" class="close" data-dismiss="modal">&times;</button>
+											          <h4 class="modal-title">Nội dung chỉnh sửa</h4>
+											        </div>
+											        <div class="modal-body">
+											          	<form id="form-updatePlayerProfile">
+															<h4 class="header green">Tên cầu thủ</h4>
+															<label class="block clearfix">
+																	<span class="block input-icon input-icon-right">
+																		<input type="text" class="form-control" placeholder="Name player" name="name_player" id="name_player" onkeyup="checkText()"/>
+																	</span>
+															</label>
+															<p style="color: red;"><span id="statusName"></span></p> 
+															<h4 class="header green">Số áo</h4>
+															<label class="block clearfix">
+																	<span class="block input-icon input-icon-right">
+																		<input type="text" class="form-control" placeholder="Squadnumber player" name="squadnumber" id="squadnumber" onkeyup="checkText()"/>
+																	</span>
+															</label>
+															<p style="color: red;"><span id="statusSquadnumber"></span></p>
+															<h4 class="header green">Ngày sinh</h4>
+															<label class="block clearfix">
+																	<span class="block input-icon input-icon-right">
+																		<input type="text" class="form-control" placeholder="Born player" name="born_player" id="born_player" onkeyup="checkText()"/>
+																	</span>
+															</label>
+															<p style="color: red;"><span id="statusBorn_player"></span></p>
+															<h4 class="header green">Quốc tịch</h4>
+															<label class="block clearfix">
+																	<span class="block input-icon input-icon-right">
+																		<input type="text" class="form-control" placeholder="Country player" name="country_player" id="country_player" onkeyup="checkText()"/>
+																	</span>
+															</label>
+															<p style="color: red;"><span id="statusCountry_player"></span></p>
+															<h4 class="header green">Vị trí</h4>
+															<label class="block clearfix">
+																	<span class="block input-icon input-icon-right">
+																		<input type="text" class="form-control" placeholder="Location player" name="location_player" id="location_player" onkeyup="checkText()"/>
+																	</span>
+															</label>
+															<p style="color: red;"><span id="statusLocation_player"></span></p>
+															<div class="widget-toolbox padding-4 clearfix">
+																<div class="btn-group pull-right">
+																	<button type="button" class="btn btn-sm btn-purple btn-confirmUpdatePlayerProfile">
+																		<i class="ace-icon fa fa-floppy-o bigger-125"></i>
+																		<span class="bigger-110">Sửa dữ liệu</span>
+																	</button>
+																</div>
+															</div>
+														</form>
+														<script>
+															function checkText(){
+																var name_player = document.getElementById("name_player").value;
+																var squadnumber = document.getElementById("squadnumber").value;
+																var born_player = document.getElementById("born_player").value;
+																var country_player = document.getElementById("country_player").value;
+																var location_player = document.getElementById("location_player").value;
+																if(name_player == ""){
+																	document.getElementById("statusName").innerHTML = "requires an text";
+																}
+																else{
+																	document.getElementById("statusName").innerHTML = " ";
+																}
+																if(squadnumber == ""){
+																	document.getElementById("statusSquadnumber").innerHTML = "requires an text";
+																}
+																else{
+																	document.getElementById("statusSquadnumber").innerHTML = " ";
+																}
+																if(born_player == ""){
+																	document.getElementById("statusBorn_player").innerHTML = "requires an text";
+																}
+																else{
+																	document.getElementById("statusBorn_player").innerHTML = " ";
+																}
+																if(country_player == ""){
+																	document.getElementById("statusCountry_player").innerHTML = "requires an text";
+																}
+																else{
+																	document.getElementById("statusCountry_player").innerHTML = " ";
+																}
+																if(location_player == ""){
+																	document.getElementById("statusLocation_player").innerHTML = "requires an text";
+																}
+																else{
+																	document.getElementById("statusLocation_player").innerHTML = " ";
+																}
+															}
+														</script>
+											        </div>
+											      </div>										      
+											    </div>
+										 	</div>											  				
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<footer th:replace = "layoutAdmin :: footer"></footer>
+</body>
+</html>

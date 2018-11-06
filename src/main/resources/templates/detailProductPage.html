@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+</head>
+<body>
+    <header th:replace="layout :: header"></header>
+    <div class="hero-area">
+        <div class="container">
+            <div class="row align-items-center">
+                 <div class="col-12 col-lg-8">
+                    <!-- Breaking News Widget -->
+                    <div class="breaking-news-area d-flex align-items-center">
+                        <div class="news-title">
+                            <p>Lịch thi đấu</p>
+                        </div>
+                        <div id="breakingNewsTicker" class="ticker">
+                            <ul>
+                                <li><a href="#">Arsenal - Liverpool</a></li>
+                                <li><a href="#">Arsenal - Tottenham</a></li>
+                                <li><a href="#">Arsenal - Cheseal</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Breaking News Widget -->
+                    <div class="breaking-news-area d-flex align-items-center mt-15">
+                        <div class="news-title title2">
+                            <p>Chuyển nhượng</p>
+                        </div>
+                        <div id="internationalTicker" class="ticker">
+                            <ul>
+                                <li><a href="#">Xem giò chạy cánh trẻ boba yama</a></li>
+                                <li><a href="#">Hậu vệ trẻ lolo kaupo</a></li>
+                                <li><a href="#">Tiền vệ trụ cacu jame</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Add -->
+                <div class="col-12 col-lg-4">
+                    <div class="hero-add">
+                        <a href="#"><img src="/img/bg-img/hero-add.gif" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="featured-post-area">
+       <div class="container">
+			<div class="row">
+			   <div class="col-md-6 col-sm-6 product">
+				   <div class="row">
+				   		<img style="width: 250px; height: 300px; margin-top: 10px;" th:src="${product.getImage_product()}" alt="Áo đấu Arsenal"/>
+				   </div>
+				   <div class="row details-product">
+				   		<p>Tên sản phẩm : <span th:text="${product.getName_product()}"></span></p>
+						<p>Mùa giải : <span th:text="${product.getSeason()}"></span></p>
+						<th:block th:each="detailProduct : ${listDetailProduct}">
+							<div class="">
+								<p>Màu sắc : <span th:text="${detailProduct.getColor_product()}"></span></p>
+								<p>Size : <span th:text="${detailProduct.getSize_product()}"></span></p>
+							</div>
+				  		 </th:block>
+				  		 <p>Giá bán : <span th:text="${product.getPrice_product()}"></span></p>
+				   </div>
+			   </div>
+			   <div class="col-sm-6 col-md-6 frame-contact">
+				  <div class="row title-card-contact"><p><h2>THÔNG TIN KHÁCH HÀNG</h2></p></div><br/>
+				  <form class="form-inforcustomer">
+				      <h4><label for="name_customer">TÊN KHÁCH HÀNG:</label></h4>
+				      <input type="text" class="form-control" id="name_customer" placeholder="Enter name" name="name_customer"/>
+
+				      <h4><label for="phone_customer">ĐIỆN THOẠI LIÊN LẠC:</label></h4>
+				      <input type="text" class="form-control" id="phone_customer" placeholder="Enter phone" name="phone_customer"/>
+
+				      <h4><label for="email_customer">EMAIL:</label></h4>
+				      <input type="text" class="form-control" id="email_customer" placeholder="Enter email" name="email_customer"/>
+
+				      <h4><label for="address_customer">ĐỊA CHỈ NHẬN HÀNG:</label></h4>
+				      <input type="text" class="form-control" id="address_customer" placeholder="Enter address" name="address_customer"/>
+				      
+				      <h4><label for="count">LƯỢNG SẢN PHẨM:</label></h4>
+				      <input type="text" class="form-control" id="count" placeholder="Enter count" name="count" style="width: 200px"/>
+				      <span style="display:none;" th:text="${product.getId_product()}" id="id_product" name="id_product"></span>
+				      <button onclick = "checkInforCustomer()" type="submit" class="btn btn-success btn-confirmCustomer" style="margin-bottom: 10px; margin-top: 10px;"><h5>Mua sản phẩm</h5></button>
+				  </form>
+			</div>
+			<script type="text/javascript">
+			      function checkInforCustomer() {
+			    	 var name = document.getElementById("namecustomer").value;
+			    	 var phone = document.getElementById("phonenumber").value;
+			    	 var email = document.getElementById("email").value;
+			    	 var address = document.getElementById("address").value;
+			    	 if(!name || !phone || !email || !address){
+			    		 alert("Khách hàng cần điền đầy đủ thông tin!!!");
+			    	 }
+			      }
+			</script>
+			</div>
+		</div>
+    </div><br/>
+    <footer th:replace="layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace = "layoutAdmin :: head">
+</head>
+<body class="no-skin">
+	<header th:replace="layoutAdmin :: header"></header>
+	<div class="main-container ace-save-state" id="main-container">
+		<script type="text/javascript">
+			try{ace.settings.loadState('main-container')}catch(e){}
+		</script>
+
+		<div id="sidebar" class="sidebar responsive ace-save-state">
+			<script type="text/javascript">
+				try{ace.settings.loadState('sidebar')}catch(e){}
+			</script>
+			<ul class="nav nav-list">
+				<li class="">
+					<a href="/arsenal">
+						<i class="menu-icon fa fa-tachometer"></i>
+						<span class="menu-text"> Arsenal </span>
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+				<li class="active open">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-pencil-square-o"></i>
+						<span class="menu-text"> Dữ liệu Tin tức</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="active">
+							<a href="/admin/News">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Thêm dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href="/admin/getListNews">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Xóa, Sửa dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-pencil-square-o"></i>
+						<span class="menu-text"> Dữ liệu cầu thủ</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="active">
+							<a href="/admin/PlayerProfile">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Thêm dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href="/admin/getListPlayerProfile">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Xóa, Sửa dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-pencil-square-o"></i>
+						<span class="menu-text"> Video</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="active">
+							<a href="/admin/Video">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Thêm dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href="/admin/getListVideo">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Xóa, Sửa dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-pencil-square-o"></i>
+						<span class="menu-text"> Lịch thi đấu</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="active">
+							<a href="/admin/Schedule">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Thêm dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href="/admin/getListSchedule">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Xóa, Sửa dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-pencil-square-o"></i>
+						<span class="menu-text"> Áo thi đấu</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="active">
+							<a href="/admin/Product">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Thêm dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href="/admin/getListProduct">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Xóa, Sửa dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+				<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+			</div>
+		</div>
+		
+		<div class="main-content">
+			<div class="main-content-inner">
+				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li>
+							<i class="ace-icon fa fa-home home-icon"></i>
+							<a href="#">Home</a>
+						</li>
+						<li>
+							<a href="#">Thêm dữ liệu</a>
+						</li>
+					</ul>
+				</div>
+				<div class="page-content">					
+					<h1 class="header green">Thêm dữ liệu Bài viết</h1>
+					<div class="row">
+						<div class="col-xs-12">
+								<div class="row">
+									<div class="col-sm-12">
+										<form id="form-cotentNews">
+											<h4 class="header green">Loại bài viết</h4>
+											<select id="dropdownListType">
+												<th:block th:each="type : ${listType}">
+											      	 <option name="typeNews" class="typeNews">
+											      	 	<p th:text="${type.getTypes()}"></p>
+											      	 </option>
+											    </th:block>
+											</select><br/>
+											<h4 class="header green">Tiêu đề</h4>
+											<label class="block clearfix">
+													<span class="block input-icon input-icon-right">
+														<input type="text" class="form-control" placeholder="Title News" name="title_news" id="title_news" onkeyup="checkText()"/>
+													</span>
+											</label>
+											<p style="color: red;"><span id="statusTitle"></span></p>
+											<h4 class="header green">Mô tả</h4>
+											<label class="block clearfix">
+													<span class="block input-icon input-icon-right">
+														<input type="text" class="form-control" placeholder="Description News" name="description_news" id="description_news" onkeyup="checkText()"/>
+													</span>
+											</label>
+											<p style="color: red;"><span id="statusDescription"></span></p>
+									        <h4 class="header green">Mô tả hình ảnh:</h4>
+									        <label class="block clearfix">
+													<span class="block input-icon input-icon-right">
+														<input type="text" class="form-control" placeholder="Description Image" name="description_image" id="description_image" onkeyup="checkText()"/>
+													</span>
+											</label>      
+											<p style="color: red;"><span id="statusDescriptionImage"></span></p>        
+									        <h4 class="header green">File to upload:</h4>
+									        <label class="block clearfix">
+													<span class="block input-icon input-icon-right">
+														<input type="file" class="form-control image" placeholder="Image News" name="image_news"/>
+													</span>
+											</label> 
+											<h4 class="header green">Nội dung</h4>
+											<div class="widget-box widget-color-blue">
+												<div class="widget-header widget-header-small"></div>
+												<div class="widget-body">
+													<div class="widget-main no-padding">
+														<textarea data-provide="markdown" data-iconlibrary="fa" rows="10" data-hidden-buttons = "Image"  name="content_news" id="content_news">														
+														</textarea>
+													</div>	
+													<div class="widget-toolbox padding-4 clearfix">
+														<div class="btn-group pull-right">
+															<button type="button" class="btn btn-sm btn-purple btn-addNews">
+																<i class="ace-icon fa fa-floppy-o bigger-125"></i>
+																<span class="bigger-110">Thêm nội dung</span>
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+										
+										<script>
+											function checkText(){
+												var titleNews = document.getElementById("title_news").value;
+												var descriptionNews = document.getElementById("description_news").value;
+												var descriptionImage = document.getElementById("description_image").value;
+												var contentNews = document.getElementById("content_news").value;
+												if(titleNews == ""){
+													document.getElementById("statusTitle").innerHTML = "requires an text";
+												}
+												else{
+													document.getElementById("statusTitle").innerHTML = " ";
+												}
+												if(descriptionNews == ""){
+													document.getElementById("statusDescription").innerHTML = "requires an text";
+												}
+												else{
+													document.getElementById("statusDescription").innerHTML = " ";
+												}
+												if(descriptionImage == ""){
+													document.getElementById("statusDescriptionImage").innerHTML = "requires an text";
+												}
+												else{
+													document.getElementById("statusDescriptionImage").innerHTML = " ";
+												}
+												if(contentNews == ""){
+													document.getElementById("statusContent").innerHTML = "requires an text";
+												}
+												else{
+													document.getElementById("statusContent").innerHTML = " ";
+												}
+											}
+										</script>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<footer th:replace = "layoutAdmin :: footer"></footer>
+</body>
+</html>

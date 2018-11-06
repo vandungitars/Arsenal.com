@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace = "layoutAdmin :: head">
+</head>
+<body class="no-skin">
+	<header th:replace="layoutAdmin :: header"></header>
+	<div class="main-container ace-save-state" id="main-container">
+		<script type="text/javascript">
+			try{ace.settings.loadState('main-container')}catch(e){}
+		</script>
+		<div id="sidebar" class="sidebar responsive ace-save-state">
+			<script type="text/javascript">
+				try{ace.settings.loadState('sidebar')}catch(e){}
+			</script>
+			<ul class="nav nav-list">
+				<li class="">
+					<a href="/arsenal">
+						<i class="menu-icon fa fa-tachometer"></i>
+						<span class="menu-text"> Arsenal </span>
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-pencil-square-o"></i>
+						<span class="menu-text"> Dữ liệu Tin tức</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="active">
+							<a href="/admin/News">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Thêm dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href="/admin/getListNews">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Xóa, Sửa dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-pencil-square-o"></i>
+						<span class="menu-text"> Dữ liệu cầu thủ</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="active">
+							<a href="/admin/PlayerProfile">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Thêm dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href="/admin/getListPlayerProfile">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Xóa, Sửa dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-pencil-square-o"></i>
+						<span class="menu-text"> Video</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="active">
+							<a href="/admin/Video">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Thêm dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href="/admin/getListVideo">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Xóa, Sửa dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="active open">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-pencil-square-o"></i>
+						<span class="menu-text"> Lịch thi đấu</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="active">
+							<a href="/admin/Schedule">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Thêm dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href="/admin/getListSchedule">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Xóa, Sửa dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-pencil-square-o"></i>
+						<span class="menu-text"> Áo thi đấu</span>
+						<b class="arrow fa fa-angle-down"></b>
+					</a>
+					<b class="arrow"></b>
+					<ul class="submenu">
+						<li class="active">
+							<a href="/admin/Product">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Thêm dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+						<li class="active">
+							<a href="/admin/getListProduct">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Xóa, Sửa dữ liệu
+							</a>
+							<b class="arrow"></b>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+				<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+			</div>
+		</div>
+		<div class="main-content">
+			<div class="main-content-inner">
+				<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+					<ul class="breadcrumb">
+						<li>
+							<i class="ace-icon fa fa-home home-icon"></i>
+							<a href="#">Home</a>
+						</li>
+						<li>
+							<a href="#">Thêm dữ liệu</a>
+						</li>
+					</ul>
+				</div>
+				<div class="page-content">					
+					<h1 class="header green">Thêm dữ liệu trận đấu</h1>
+					<div class="row">
+						<div class="col-xs-12">
+								<div class="row">
+									<div class="col-sm-12">
+										<form id="form-AddSchedule">
+											<h4 class="header green">Đội khách</h4>
+											<label class="block clearfix">
+													<span class="block input-icon input-icon-right">
+														<input type="text" class="form-control" placeholder="Team customer" name="team_customer" id="team_customer" onkeyup="checkText()"/>
+													</span>
+											</label>
+											<p style="color: red;"><span id="statusTC"></span></p>
+											<h4 class="header green">Đội nhà</h4>
+											<label class="block clearfix">
+													<span class="block input-icon input-icon-right">
+														<input type="text" class="form-control" placeholder="Team home" name="team_home" id="team_home" onkeyup="checkText()"/>
+													</span>
+											</label>
+											<p style="color: red;"><span id="statusTH"></span></p>	
+											<h4 class="header green">Thời gian</h4>									
+										    <input type="datetime-local" class="form-control datetimepicker" style="width: 250px"/><br/>
+											<div class="btn-group pull-right">
+												<button type="button" class="btn btn-sm btn-purple btn-addSchedule">
+													<i class="ace-icon fa fa-floppy-o bigger-125"></i>
+													<span class="bigger-110">Thêm nội dung</span>
+												</button>
+											</div>
+										</form>
+										
+										<script>
+											function checkText(){
+												var teamCus = document.getElementById("team_customer").value;
+												var teamHome = document.getElementById("team_home").value;
+												if(teamCus == ""){
+													document.getElementById("statusTC").innerHTML = "requires an text";
+												}
+												else{
+													document.getElementById("statusTC").innerHTML = " ";
+												}
+												if(teamHome == ""){
+													document.getElementById("statusTH").innerHTML = "requires an text";
+												}
+												else{
+													document.getElementById("statusTH").innerHTML = " ";
+												}
+											}
+										</script>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<footer th:replace = "layoutAdmin :: footer"></footer>
+</body>
+</html>
