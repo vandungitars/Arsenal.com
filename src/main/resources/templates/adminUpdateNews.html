@@ -189,7 +189,8 @@
 											      	 <td><div th:with="stt = 0">
 											      	 	<p th:with="stt=${stt+1}" th:text="${stt}"></p>
 											      	 </div></td>
-											         <td th:text="${news.getTitle_news()}"></td>
+											         <td th:text="${news.getTitle_news()}" class="changeText"></td>
+											         <td th:text="${news.getContent_news()}" class="changeText"></td>
 							         				 <td><img th:src="${news.getImage_news()}" class="frame-image"/></td>
 							         				 <td style="display:none;" th:text="${news.getId_news()}" class="idNews"></td>
 											         <td><button type="button" class="btn btn-warning btn-md btn-deleteNews">Xóa</button>
@@ -234,6 +235,10 @@
 																				<button type="button" class="btn btn-sm btn-purple btn-confirmUpdateNews">
 																					<i class="ace-icon fa fa-floppy-o bigger-125"></i>
 																					<span class="bigger-110">Sửa nội dung</span>
+																				</button>
+																				<button id="btn-reset" type="reset" class="width-35 pull-right btn btn-sm">
+																					<i class="ace-icon fa fa-refresh"></i>
+																					<span class="bigger-110">Reset</span>
 																				</button>
 																			</div>
 																		</div>

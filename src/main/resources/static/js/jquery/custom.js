@@ -19,7 +19,7 @@ $(document).ready(function(){
 					window.location = link;
 				}
 				else{
-					alert("Login failed");
+					$("#statusLogin").append("Login failed");
 				}
 			}
 		})
@@ -42,14 +42,17 @@ $(document).ready(function(){
 					link = nowLink.replace("admin","admin/News");
 					window.location = link;
 				}
+				else if(value == 'Username used!!!'){
+					//$("#statusRegister").append(value);
+					$("#statusRegister").replace(value);
+				}
 				else{
-					alert("Register failed");
+					$("#statusRegister").append(value);
 				}
 			}
 		})
 	});
 	
-	/*News*/
 	var files= [];
 	$(".image").change(function(event){
 		files = event.target.files;
@@ -72,6 +75,14 @@ $(document).ready(function(){
                                 + '   <input name="files['+ fileIndex +']" type="file"/>'
                                 + '</td></tr>');
     });
+	
+	$(".changeText").each(function(){
+	    var $this = $(this);
+	    var t = $this.text();
+	    $this.html(t.replace('&lt','<').replace('&gt', '>'));
+	});
+	
+	/*News*/
 	$(".btn-addNews").click(function(){
 		var optionText = $("#dropdownListType :selected").text();
 		var formcontent = $("#form-cotentNews").serializeArray();

@@ -36,6 +36,7 @@
 									<div class="widget-main">
 										<div class="space-6"></div>
 										<form id="form-login">
+											<h5 id="statusLogin"></h5>
 											<fieldset>
 												<label class="block clearfix">
 													<span class="block input-icon input-icon-right">
@@ -55,7 +56,7 @@
 														<input type="checkbox" class="ace" />
 														<span class="lbl"> Remember Me</span>
 													</label>
-													<button id="btn-login" type="button" class="width-35 pull-right btn btn-sm btn-primary" onclick="checkText()">
+													<button id="btn-login" type="button" class="width-35 pull-right btn btn-sm btn-primary">
 														<i class="ace-icon fa fa-key"></i>
 														<span class="bigger-110">Login</span>
 													</button>
@@ -70,11 +71,11 @@
 										<div class="space-6"></div>
 
 										<div class="social-login center">
-											<a class="btn btn-primary">
+											<a class="btn btn-primary" href="https://facebook.com">
 												<i class="ace-icon fa fa-facebook"></i>
 											</a>
 
-											<a class="btn btn-danger">
+											<a class="btn btn-danger" href="https://google.com">
 												<i class="ace-icon fa fa-google-plus"></i>
 											</a>
 										</div>
@@ -97,7 +98,7 @@
 											New User Registration
 										</h4>
 										<div class="space-6"></div>
-										<p> Enter your details to begin: </p>
+										<h5 id="statusRegister"> Enter your details to begin: </h5>
 										<form id = "form-register">
 											<fieldset>
 												<label class="block clearfix">
@@ -183,7 +184,6 @@
 			$(target).addClass('visible');
 		 });
 		});
-
 		jQuery(function($) {
 		 $('#btn-login-dark').on('click', function(e) {
 			$('body').attr('class', 'login-layout');
@@ -196,7 +196,6 @@
 			$('body').attr('class', 'login-layout light-login');
 			$('#id-text2').attr('class', 'grey');
 			$('#id-company-text').attr('class', 'blue');
-			
 			e.preventDefault();
 		 });
 		});

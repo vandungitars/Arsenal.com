@@ -78,5 +78,12 @@ public class NewsServiceImp implements NewsService{
 		query.setParameter(1, comment.getContent_comment());
 		query.setParameter(2, comment.getEmail_comment());
 		query.executeUpdate();
+	}
+
+	@Override
+	public List<News> getListNewsByType(Long id_type, int maxRecord) {
+		TypedQuery<News> query = entityManager.createQuery("FROM News where id_type="+ id_type, News.class);
+		query.setMaxResults(maxRecord); 
+		return query.getResultList();
 	} 
 }

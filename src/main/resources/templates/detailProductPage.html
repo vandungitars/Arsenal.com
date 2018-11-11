@@ -85,6 +85,10 @@
 				      <input type="text" class="form-control" id="count" placeholder="Enter count" name="count" style="width: 200px"/>
 				      <span style="display:none;" th:text="${product.getId_product()}" id="id_product" name="id_product"></span>
 				      <button onclick = "checkInforCustomer()" type="submit" class="btn btn-success btn-confirmCustomer" style="margin-bottom: 10px; margin-top: 10px;"><h5>Mua sản phẩm</h5></button>
+				  	  <button id="btn-reset" type="reset" class="width-35 pull-right btn btn-sm">
+						<i class="ace-icon fa fa-refresh"></i>
+						<span class="bigger-110">Reset</span>
+					  </button>
 				  </form>
 			</div>
 			<script type="text/javascript">

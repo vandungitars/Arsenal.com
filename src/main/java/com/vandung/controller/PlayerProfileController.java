@@ -1,9 +1,6 @@
 package com.vandung.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -47,7 +44,7 @@ public class PlayerProfileController {
 			jsonNode = objectMapper.readTree(dataJson);
 			String name_player = jsonNode.get("name_player").asText();
 			int squadnumber = jsonNode.get("squadnumber").asInt();
-			Date born_player = new SimpleDateFormat("dd/MM/yyyy").parse(jsonNode.get("born_player").asText());  
+			String born_player = jsonNode.get("born_player").asText();  
 			String country_player = jsonNode.get("country_player").asText();
 			String image_player = ApiController.nameFile;
 			String location_player = jsonNode.get("location_player").asText();
@@ -92,7 +89,7 @@ public class PlayerProfileController {
 			jsonNode = objectMapper.readTree(dataJson);
 			String name_player = jsonNode.get("name_player").asText();
 			int squadnumber = jsonNode.get("squadnumber").asInt();
-			Date born_player = new SimpleDateFormat("dd/MM/yyyy").parse(jsonNode.get("born_player").asText());  
+			String born_player = jsonNode.get("born_player").asText();  
 			String country_player = jsonNode.get("country_player").asText();
 			String location_player = jsonNode.get("location_player").asText();
 			if(name_player != "" && squadnumber != 0 && born_player != null && country_player != "" && location_player != "" ) {

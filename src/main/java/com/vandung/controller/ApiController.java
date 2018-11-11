@@ -2,6 +2,9 @@ package com.vandung.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -47,6 +50,20 @@ public class ApiController{
 	
 	public static String nameFile;
 	
+	public String md5(String str){
+		String result = "";
+		MessageDigest digest;
+		try {
+			digest = MessageDigest.getInstance("MD5");
+			digest.update(str.getBytes());
+			BigInteger bigInteger = new BigInteger(1,digest.digest());
+			result = bigInteger.toString(16);
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	@RequestMapping(value = "/api/loginAdmin", method = RequestMethod.GET)
 	public String loginAdmin(@RequestParam String dataJson) {
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -55,10 +72,11 @@ public class ApiController{
 			jsonNode = objectMapper.readTree(dataJson);
 			String username = jsonNode.get("username").asText();
 			String password = jsonNode.get("password").asText();
+			String passwordSC = md5(password);
 			Iterable<Admin> iterableAdmin = adminService.findAll();
 			iterableAdmin.forEach((admin) ->{
 				if(admin.getUsername().equals(username)) {
-					if(admin.getPassword().equals(password)) {
+					if(admin.getPassword().equals(passwordSC)) {
 						KeyApi.statusLogin = "true";
 					}
 				}
@@ -79,14 +97,30 @@ public class ApiController{
 			String username = jsonNode.get("username").asText();
 			String password = jsonNode.get("password").asText();
 			String repeatPassword = jsonNode.get("repeat-password").asText();
+			Iterable<Admin> iterableAdmin = adminService.findAll();
+			iterableAdmin.forEach((a) ->{
+				if(a.getUsername().equals(username)) {
+					KeyApi.statusRegisterUsername = "false";
+				}
+			});
 			if(password.equals(repeatPassword)) {
+				password = md5(password);
 				admin.setUsername(username);
 				admin.setPassword(password);
 				adminService.save(admin);
-				KeyApi.statusRegister = "true";
+				KeyApi.statusRegisterPassword = "true";
 			}
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
+		}
+		if(KeyApi.statusRegisterUsername == "false") {
+			return "Username used!!!";
+		}
+		else if(KeyApi.statusRegisterPassword == "false") {
+			return "Password defferent PasswordRepeat!!!";
+		}
+		else {
+			KeyApi.statusRegister = "true";
 		}
 		return KeyApi.statusRegister;
 	}
@@ -183,6 +217,11 @@ public class ApiController{
 	}
 	
     public static String changeContent(String content) {
+    	while(content.contains("&lt;") || content.contains("&gt;")) {
+    		content.replace("<", "&lt;");
+    		content.replace("/>", "&gt;");
+    	}
+    	System.out.println(content);
 		return content.replace("\n", "</br>");
 	}
 }

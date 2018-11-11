@@ -6,7 +6,8 @@
 </head>
 <body>
 	<header th:replace="layout :: header"></header>
-	<p th:text="${news.getDescription_news()}"></p>
+	<p th:text="${news.getDescription_news()}" class="changeText"></p>
+	<p th:text="${news.getContent_news()}" class="changeText"></p>
 	<footer th:replace="layout :: footer"></footer>
 </body>
 </html>

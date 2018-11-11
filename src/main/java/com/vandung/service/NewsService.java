@@ -16,4 +16,5 @@ public interface NewsService {
 	void deleteById(Long id_news);
 	List<Type_News> getListType();
 	void saveComment(Comment comment);
+	List<News> getListNewsByType(Long id_type, int maxRecord);
 }

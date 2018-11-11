@@ -1,7 +1,5 @@
 package com.vandung.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +23,7 @@ public class Player{
 	private int squadnumber;
 	
 	@Column(name = "born_player")
-	private Date born_player;
+	private String born_player;
 	
 	@Column(name = "country_player")
 	private String country_player;
@@ -60,11 +58,11 @@ public class Player{
 		this.squadnumber = squadnumber;
 	}
 
-	public Date getBorn_player() {
+	public String getBorn_player() {
 		return born_player;
 	}
 
-	public void setBorn_player(Date born_player) {
+	public void setBorn_player(String born_player) {
 		this.born_player = born_player;
 	}
 
