@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vandung.model.News;
+import com.vandung.model.Schedule;
 import com.vandung.model.Type_News;
 import com.vandung.service.NewsService;
+import com.vandung.service.ScheduleService;
 
 @Controller
 public class NewsController {
@@ -23,11 +25,31 @@ public class NewsController {
 	@Autowired
 	private NewsService newsService;
 	
+	@Autowired
+	private ScheduleService scheduleService;
+	
 	@RequestMapping(value = "/arsenal/News/{idNews}", method = RequestMethod.GET)
 	public String defaultPage(@PathVariable String idNews, ModelMap modelMap) {
 		Long id_news = Long.parseLong(idNews);
 		News news = newsService.findById(id_news);
 		news.setContent_news(ApiController.changeContent(news.getContent_news()));
+		List<News> listNews = newsService.getListNewsByType(Long.parseLong("1"), 6);
+		listNews.forEach((p)->{
+			if(!p.getImage_news().contains("/img/core-img/")) {
+				p.setImage_news("/img/core-img/" + p.getImage_news());
+			}
+		});
+		listNews.sort((p1,p2)->{
+			if(p1.getId_news().compareTo(p2.getId_news()) >0) {
+				return -1;
+			}
+			else {
+				return 1;
+			}
+		});
+		List<Schedule> listSchedule = scheduleService.findAll();
+		modelMap.addAttribute("listSchedule", listSchedule);
+		modelMap.addAttribute("listNews", listNews);
 		modelMap.addAttribute("news", news);
 		return "newsPage";
 	}

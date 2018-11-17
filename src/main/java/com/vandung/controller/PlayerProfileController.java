@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,16 +18,16 @@ import com.vandung.service.PlayerProfileService;
 public class PlayerProfileController {
 
 	@Autowired
-	private PlayerProfileService playerProfileService;
-	
-	@RequestMapping(value = "/arsenal/playerprofile", method = RequestMethod.GET)
-	public String defaultPage() {
-		return "playerprofilePage";
-	}
+	private PlayerProfileService playerProfileService;	
 	
 	@RequestMapping(value = "/arsenal/playerprofile/{id}", method = RequestMethod.GET)
-	public String playerProfileByID(@RequestParam String id) {
-		return "aaa";
+	public String playerProfileByID(@PathVariable String id, ModelMap modelMap) {
+		Player player = playerProfileService.findByID(Long.parseLong(id));
+		if(!player.getImage_player().contains("/img/core-img/")) {
+			player.setImage_player("/img/core-img/" + player.getImage_player());
+		}
+		modelMap.addAttribute("player", player);
+		return "playerprofilePage";
 	}
 	
 	@RequestMapping(value = "/admin/PlayerProfile", method = RequestMethod.GET)

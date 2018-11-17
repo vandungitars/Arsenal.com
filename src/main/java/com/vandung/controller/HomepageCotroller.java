@@ -52,11 +52,11 @@ public class HomepageCotroller {
 			}
 		});
 		listNews2.sort((p1,p2)->{
-			if(p1.getTimeupdate_news().compareTo(LocalDateTime.now().toString()) >0) {
-				return 1;
+			if(p1.getId_news().compareTo(p2.getId_news()) >0) {
+				return -1;
 			}
 			else {
-				return -1;
+				return 1;
 			}
 		});
 		List<Schedule> listSchedule = scheduleService.findAll();

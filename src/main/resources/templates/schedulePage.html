@@ -4,22 +4,24 @@
 </head>
 
 <body>
-    <header th:replace="layout :: header"></header>
-    <div class="hero-area">
+    <header th:replace="layout :: header"></header>	
+	<div class="hero-area">
         <div class="container">
             <div class="row align-items-center">
-                 <div class="col-12 col-lg-8">
+                <div class="col-12 col-lg-8">
                     <!-- Breaking News Widget -->
                     <div class="breaking-news-area d-flex align-items-center">
                         <div class="news-title">
                             <p>Lịch thi đấu</p>
                         </div>
                         <div id="breakingNewsTicker" class="ticker">
-                            <ul>
-                                <li><a href="#">Arsenal - Liverpool</a></li>
-                                <li><a href="#">Arsenal - Tottenham</a></li>
-                                <li><a href="#">Arsenal - Cheseal</a></li>
-                            </ul>
+                        	<ul>
+	                            <th:block th:each="Schedule : ${listSchedule}">
+							         <li><a href="#"><span th:text="${Schedule.getTeam_home()}"></span> - 
+							         				<span th:text="${Schedule.getTeam_customer()}"></span>
+							         </a></li>	
+							   </th:block>
+						   </ul>
                         </div>
                     </div>
 
@@ -47,35 +49,53 @@
             </div>
         </div>
     </div>
-
     <div class="featured-post-area">
         <div class="container">
             <div class="row">
-                <table class="table">
-                	<thead>
-                		<tr>
-                			<th>Đội nhà</th>
-                			<th>Đội khách</th>
-                			<th>Thời gian</th>
-                		</tr>
-                	</thead>
-                	<tbody>
-                		<tr>
-                			<td>Arsenal</td>
-                			<td>Watfod</td>
-                			<td>21:00 Chủ nhật</td>
-                		</tr>
-                		<tr>
-                			<td>Arsenal</td>
-                			<td>MU</td>
-                			<td>21:00 Thứ bảy</td>
-                		</tr>
-                	</tbody>
-                </table>
+            	<div class="col-12 col-md-6 col-lg-8">
+	                <h3 class="header green">Danh sách lịch thi đấu</h3>
+					<table class="table">
+					    <thead>
+					      <tr id="tr">
+					        <th>STT</th>
+					        <th>Đội khách</th>
+					        <th>Đội nhà</th>
+					        <th>Thời gian</th>
+					      </tr>
+					    </thead>
+					    <tbody>
+					    	<th:block th:each="schedule : ${listSchedule}" th:with="stt = 0">
+						      <tr>
+						      	 <td><p th:with="stt=${stt+2}" th:text="${stt}"></p></td>
+						         <td th:text="${schedule.getTeam_home()}"></td>
+						         <td th:text="${schedule.getTeam_customer()}"></td>
+						         <td th:text="${schedule.getTime()}"></td>
+						      </tr>
+						   </th:block>
+					    </tbody>
+					  </table>
+				</div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <!-- Single Featured Post -->
+                    <th:block th:each="news : ${listNews}">
+				      <div class="single-blog-post small-featured-post d-flex">
+                        <div class="post-thumb">
+                            <a href="#"><img th:src="${news.getImage_news()}" alt=""></a>
+                        </div>
+                        <div class="post-data">
+                            <div class="post-meta">
+                                <a th:href="@{'/arsenal/News/' + ${news.getId_news()}}" class="post-catagory"><span th:text="${news.getTitle_news()}" class="changeText"></span></a>
+                                 <div class="post-meta">
+                                     <p class="post-excerp changeText" th:text="${news.getDescription_news()}"></p>
+                                 </div>
+                            </div>
+                        </div>
+                      </div>
+				    </th:block>
+                </div>
             </div>
         </div>
     </div>
     <footer th:replace="layout :: footer"></footer>
 </body>
-
 </html>
